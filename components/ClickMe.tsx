@@ -1,5 +1,5 @@
 import * as React from 'react';
-import './style.css';
+import '../style.css';
 import PropTypes from 'prop-types';
 
 type ClickMeProps = {
