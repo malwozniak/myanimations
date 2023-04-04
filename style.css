@@ -1,3 +1,9 @@
-h1, p {
-  font-family: Lato;
+h1,
+p {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-transform: capitalize;
+}
+
+img {
+  width: 100vw;
 }
