@@ -1,16 +1,15 @@
 import * as React from 'react';
 import './style.css';
 import { gsap } from 'gsap';
-import ScrollTrigger from "gsap/ScrollTrigger";
+import ScrollTrigger from 'gsap/ScrollTrigger';
 import ClickMe from './components/ClickMe';
 import PageWrapper from './components/PageWrapper';
 import DissolveImage from './components/DissolveImage';
 
-
 export default function App() {
   const [isFadingOut, setIsFadingOut] = React.useState(false);
   const titleRef = React.useRef(null);
-  let bgImage = document.querySelector('.img-container');
+  const bgImageRef = React.useRef(null);
 
   const handleClick = () => {
     console.log('Button clicked!');
@@ -31,14 +30,15 @@ export default function App() {
       ease: 'back.out(1.7)',
     });
     gsap.registerPlugin(ScrollTrigger);
+    const bgImage = bgImageRef.current;
 
     gsap.fromTo(
       bgImage,
       {
-        clipPath: 'circle(5% at 77% 40%)',
+        clipPath: 'circle(1% at 77% 40%)',
       },
       {
-        clipPath: 'circle(75% at 50% 50%)',
+        clipPath: 'circle(25% at 75% 50%)',
         ease: 'none',
 
         //  We want to do that animation on scroll
@@ -57,8 +57,7 @@ export default function App() {
       <PageWrapper>
         <h1 ref={titleRef}>Home Page</h1>
       </PageWrapper>
-      <div>
-        {' '}
+      <div className="img-container" ref={bgImageRef}>
         <img src="https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/textures/img1.jpg" />
       </div>
       {/* <DissolveImage
